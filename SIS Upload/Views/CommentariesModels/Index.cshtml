@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SIS_Upload.Models.CommentariesModel>
+
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<h1>САЙТ АДМИНИСТРАТОРА</h1>
+<style>
+    body{
+        background-color:cornflowerblue;
+        font-size: 20px;
+         box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+    }
+</style>
+<p>
+    <a asp-action="Create">Меню создания комментариев</a>
+</p>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReleaseDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Comment)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NickName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Reputation)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReleaseDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Comment)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NickName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Reputation)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

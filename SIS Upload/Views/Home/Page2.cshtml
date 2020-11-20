@@ -1,0 +1,26 @@
+﻿@model SIS_Upload.Controllers.HomeController
+@{
+    ViewData["Title"] = "View";
+}
+
+<div>СОЗДАНИЕ АБСТРАКТНЫХ КЛАССОВ НА C#</div>
+<p>Рассмотрим обычный пример создания абстрактного класса, например такой</p>
+<p class="page1">abstract class MyTest{</p>
+<p class="page2">public string Name{get;set;} </p>
+<p class="page3">public MyTest(string name){ </p>
+<p class="page4">Name = name; </p>
+<p class="page5">} </p>
+<p class="page6">public void Display(){ </p>
+<p class="page7">Console.WriteLine(Name); </p>
+<p class="page8">} </p>
+<p class="page9">}</p>
+<p class="page10">class Client : Person{</p>
+<p class="page11">public int Sum {get;set;}</p>
+<p class="page12">public CLient (string name, int sum) : base(name)</p>
+<p class="page13">{Sum = sum;}</p>
+<p class="page14">}</p>
+
+Client client = new Client("Tom", 500);
+Employee employee = new Employee ("Bob", "Apple");
+client.Display();
+employee.Display();

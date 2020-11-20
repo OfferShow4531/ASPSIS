@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model SIS_Upload.Controllers.HomeController
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<style>
+    body {
+        
+        font-size:25px;
+        color: black;
+        margin:50px;
+    }
+</style>
+@if (SignInManager.IsSignedIn(User)) //true
+{
+    
+<div class="text-center">
+    <div class="title"><strong>ДОБРО ПОЖАЛОВАТЬ</strong></div>
+
+    <button class="in"><strong>ПОКАЗАТЬ ТЕКСТ</strong></button>
+    <button class="push"><strong>СКРЫТЬ ТЕКСТ</strong></button>
+
+    <p class="information">Наш сайт представляет самостоятельную работу</p>
+    <p class="information1">В нашем сайте присутствуют такие элементы как: </p>
+    <p class="information2">MVC, IDENTITY(Форма регистрации), Абстрактные классы и немного своих страниц</p>
+    <p class="information3">Давайте рассмотрим это на примере</p>
+    <br />
+    <div class="text-center">Вы можете изменить свои комментарии здесь!<a asp-controller="CommentariesModels" asp-action="Index"> ЗДЕСЬ</a></div>
+    <div class="text-center">Метод по созданию абстрактного класса<a asp-controller="Home" asp-action="Page2"> ЗДЕСЬ</a></div>
+    <div class="text-center">Статья на JAVA<a asp-controller="Home" asp-action="Journal"> ЗДЕСЬ</a></div>
+</div>
+
+
+}
+else //false
+{
+
+    <div class="text-center">Вы используете модель, которая предоставляет доступ только незарегистрированным пользователям!</div>
+    <div class="text-center">Нажмите чтобы -> <a asp-controller="CommentariesModels" asp-action="Comments">Просмотреть комментарии</a></div>
+
+}

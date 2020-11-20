@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SIS_Upload.Models.CommentariesModel>
+
+@{
+    ViewData["Title"] = "Comments";
+}
+
+<h1>СТРАНИЦА ПОЛЬЗОВАТЕЛЕЙ</h1>
+<style>
+    body {
+        background-color: yellow;
+        box-shadow: 2px 2px 5px rgb(255, 106, 0);
+        font-family:'Times New Roman';
+        font-size: 40px;
+    }
+    p{
+        font-size: 70px;
+    }
+    
+</style>
+<p>
+   Комментариии других пользователей\Включая Ваши комментарии
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NickName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reputation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NickName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reputation)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
